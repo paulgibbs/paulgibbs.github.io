@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script>
+	document.addEventListener( 'DOMContentLoaded', function() {
+		var request = new XMLHttpRequest();
+		request.open( 'GET', 'https://eu.battle.net/api/wow/guild/Aszune/Outcast?fields=members' );
+
+		request.onload = function() {
+			if ( request.status >= 200 && request.status < 400 ) {
+				var data = JSON.parse( request.responseText );
+				console.log( data );
+			}
+		};
+
+		request.send();
+	} );
+	</script>
+</head>
+
+<body>
+
+	<main role="main">
+		<h1>Guild Members</h1>
+
+		<ul id="members">
+		</ul>
+	</main>
+
+</body>
+</html>

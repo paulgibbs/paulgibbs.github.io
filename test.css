@@ -18,7 +18,7 @@ form.wpcf7-form {
 	color: #FFF;
 	display: block;
 	font-size: 12px;
-  font-weight: 400px;
+  font-weight: 400;
 	margin-bottom: 4px;
 	text-transform: uppercase;
 }
@@ -52,11 +52,6 @@ form.wpcf7-form {
   background-color: #FFF !important;
 }
 
-.wpcf7-form .invalid {
-	background-color: #FF5B5B;
-	color: #FFF;
-}
-
 .wpcf7-form input[type="submit"] {
   background-color: #C82D2D;
   border: 1px solid #FFF;
@@ -69,4 +64,26 @@ form.wpcf7-form {
 
 .wpcf7-form #right + p {
   margin-bottom: 0;
+}
+
+.wpcf7-mail-sent-ok {
+  border: 0;
+  color: #FFF;
+  text-align: center;
+}
+
+.wpcf7-validation-errors {
+  display: none;
+}
+
+.wpcf7-not-valid-tip {
+  color: #FFF;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.wpcf7-not-valid input,
+.wpcf7-not-valid textarea {
+  background-color: #FF5B5B;
+  color: #FFF;
 }

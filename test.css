@@ -47,6 +47,11 @@ form.wpcf7-form {
 	-webkit-font-smoothing: antialiased;
 }
 
+.wpcf7-form input:focus,
+.wpcf7-form textarea:focus {
+  background-color: #FFF !important;
+}
+
 .wpcf7-form .invalid {
 	background-color: #FF5B5B;
 	color: #FFF;
@@ -64,9 +69,4 @@ form.wpcf7-form {
 
 .wpcf7-form #right + p {
   margin-bottom: 0;
-}
-
-.wpcf7-form input[type="text"]:focus,
-.wpcf7-form textarea:focus {
-  background: #FFF !important;
 }

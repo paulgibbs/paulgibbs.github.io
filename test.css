@@ -29,7 +29,7 @@
   .wpcf7-form ::-webkit-input-placeholder,
   .wpcf7-form ::-moz-placeholder,
   .wpcf7-form ::-ms-input-placeholder {
-    color: #FFF,
+    color: #FFF;
     opacity: .5;
   }
 

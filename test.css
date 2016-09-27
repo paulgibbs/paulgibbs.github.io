@@ -65,3 +65,8 @@ form.wpcf7-form {
 .wpcf7-form #right + p {
   margin-bottom: 0;
 }
+
+#two-column input[type="text"]:focus,
+#two-column textarea:focus {
+  background: #FFF;
+}

@@ -1,62 +1,67 @@
-  form.wpcf7-form {
-  	font-weight: 400;
-  	margin: 0 auto;
-		max-width: 650px;
-  	text-align: left;
-  }
+form.wpcf7-form {
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: 650px;
+	text-align: left;
+}
 
-  .dark-back {
-  	background-color: #00A59B;
-  }
+.dark-back {
+	background-color: #00A59B;
+}
 
-  .wpcf7-form fieldset {
-  	margin: 0 auto;
-  	max-width: 650px;
-  }
+.wpcf7-form fieldset {
+	margin: 0 auto;
+	max-width: 650px;
+}
 
-  .wpcf7-form label {
-  	color: #FFF;
-  	display: block;
-  	font-size: 12px;
-  	margin-bottom: 4px;
-  	text-transform: uppercase;
-  }
+.wpcf7-form label {
+	color: #FFF;
+	display: block;
+	font-size: 12px;
+  font-weight: 400px;
+	margin-bottom: 4px;
+	text-transform: uppercase;
+}
 
-  .light-back .wpcf7-form input {
-  	border: 0;
-  }
+.light-back .wpcf7-form input {
+	border: 0;
+}
 
-  .wpcf7-form ::-webkit-input-placeholder,
-  .wpcf7-form ::-moz-placeholder,
-  .wpcf7-form ::-ms-input-placeholder {
-    color: #FFF;
-    opacity: .5;
-  }
+.wpcf7-form ::-webkit-input-placeholder,
+.wpcf7-form ::-moz-placeholder,
+.wpcf7-form ::-ms-input-placeholder {
+  color: #FFF;
+  opacity: .5;
+}
 
-  .wpcf7-form input,
-  .wpcf7-form textarea {
-  	border-radius: 2px;
-		border-style: none;
-  	box-sizing: border-box;
-  	color: #555;
-  	display: block;
-  	font-size: 24px;
-  	padding: 15px 20px;
-    -moz-osx-font-smoothing: grayscale;
-  	-webkit-font-smoothing: antialiased;
-  }
+.wpcf7-form input,
+.wpcf7-form textarea {
+	border-radius: 2px;
+	border-style: none;
+	box-sizing: border-box;
+	color: #555;
+	display: block;
+	font-size: 24px;
+	padding: 15px 20px;
+  -moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
 
-  .wpcf7-form .invalid {
-  	background-color: #FF5B5B;
-  	color: #FFF;
-  }
+.wpcf7-form .invalid {
+	background-color: #FF5B5B;
+	color: #FFF;
+}
 
-  .wpcf7-form input[type="submit"] {
-    background-color: #C82D2D;
-    border: 1px solid #FFF;
-    border-radius: 3px;
-    color: #FFF;
-    font-size: 20px;
-    margin: 0 auto;
-    padding: 15px 35px;
-  }
+.wpcf7-form input[type="submit"] {
+  background-color: #C82D2D;
+  border: 1px solid #FFF;
+  border-radius: 3px;
+  color: #FFF;
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 15px 35px;
+}
+
+.wpcf7-form #right + p {
+  margin-bottom: 0;
+}

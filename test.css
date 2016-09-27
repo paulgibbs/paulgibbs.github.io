@@ -85,6 +85,6 @@ form.wpcf7-form {
 
 .wpcf7-form input.wpcf7-not-valid,
 .wpcf7-form textarea.wpcf7-not-valid {
-	background-color: #FF5B5B;
-	color: #FFF;
+	background-color: #FF5B5B !important;
+	color: #FFF !important;
 }

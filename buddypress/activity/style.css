@@ -1,0 +1,234 @@
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box !important;
+	-webkit-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+}
+
+.hide {
+	display: none;
+}
+.show {
+	display: block;
+}
+
+
+/**
+ * GENERAL APPEARANCE AND SPACING
+ */
+
+.xprofile-wrapper {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	margin: 0.5rem;
+}
+
+.xprofile-navigation,
+.xprofile-groups,
+.xprofile-controls {
+	width: 100%;
+}
+
+.xprofile-wrapper .dashicons {
+	font-size: 2rem;
+	height: 44px;
+	margin-bottom: 0;
+	padding: 0;
+	width: 44px;
+}
+
+[contenteditable="true"]:focus {
+	background-color: #FFF;
+}
+[contenteditable="true"]:empty:before {
+	content: attr(placeholder);
+	opacity: 0.54;
+}
+
+.xprofile-hint {
+	color: #666;
+	display: block;
+	font-size: 13px;
+	font-style: italic;
+	text-align: center;
+}
+
+[contenteditable="true"]:hover,
+.sortable-placeholder {
+	border: 5px dashed #D5D2CA;
+	border: 5px dashed rgba(0, 0, 0, 0.1);
+}
+
+
+/**
+ * NAVIGATION
+ */
+
+.xprofile-navigation {
+	z-index: 100;
+
+	position: -webkit-sticky; /* Safari */
+	position: sticky; /* iOS, Firefox w/ flag */
+	top: 0;
+}
+
+.xprofile-navigation .group-picker {
+	font-size: 16px;
+	height: 36px;
+	margin-left: 0;
+	margin-right: 0;
+	width: 100%;
+}
+
+
+/**
+ * PROFILE GROUPS
+ */
+
+#xprofile-groups-secondary,
+#group-picker-secondary {
+	display: none;
+}
+
+
+/**
+ * PROFILE FIELDS
+ */
+
+.xprofile-field {
+	background-color: #FFF;
+	border: 1px solid #DEDEDE;
+	color: #222;
+	margin-bottom: 0.5rem;
+	padding: 0.5rem;
+}
+.xprofile-field:last-child {
+	margin-bottom: 0;
+}
+.xprofile-field fieldset {
+	margin-bottom: 0.5rem;
+}
+.xprofile-field header {
+	font-size: 18px;
+	font-weight: 600;
+	text-overflow: ellipsis;
+}
+.xprofile-field input[type="text"],
+.xprofile-field label,
+.xprofile-field legend,
+.xprofile-field select,
+.xprofile-field textarea {
+	display: block;
+	font-size: 14px;
+	margin-bottom: inherit;
+	width: 100%;
+}
+.xprofile-field legend {
+	font-weight: 600;
+	font-size: 16px;
+}
+.xprofile-field p {
+	font-size: 14px;
+}
+.xprofile-group .xprofile-field select {
+	font-size: 16px;
+	height: 36px;
+	margin-bottom: 0.5rem;
+	width: auto;
+}
+
+
+/**
+ * BUTTONS AND CONTROLS
+ */
+
+.xprofile-field {
+	clear: both;
+}
+.xprofile-navigation,
+.xprofile-groups-wrapper,
+.xprofile-controls,
+.field-controls {
+	overflow: auto;
+}
+
+.field-controls .trash-button {
+	float: left;
+}
+.field-controls .change-button {
+	float: right;
+}
+.field-controls {
+	background-color: #FAFAFA;
+	border-top: 1px solid #DEDEDE;
+	margin: 1rem -0.5rem -0.5rem;
+	padding: 0.5rem 0.5rem;
+}
+
+.xprofile-controls {
+	margin-top: 0.5rem;
+	padding: 0 0.5rem 0.5rem;
+}
+.xprofile-controls .button {
+	background-color: #FFF;
+	margin-bottom: 0;
+	text-align: center;
+}
+.xprofile-controls .add-button {
+	float: left;
+}
+.xprofile-controls .add-button:before {
+	vertical-align: middle;  /* Todo: this isn't lining up properly on iphone */
+}
+.xprofile-controls .save-button {
+	float: right;
+}
+
+.xprofile-wrapper .trash-button {
+	color: #A00;
+}
+.xprofile-wrapper .trash-button:hover {
+	color: #F00;
+}
+
+
+/**
+ * RESPONSIVE MAGIC
+ *
+ * The base CSS is for phone-sized devices.
+ *
+ * Small tablets = 783px+ wide  (matches a breakpoint in wp-admin).
+ * Large tablets = 1200px+ wide (arbitary breakpoint, needs testing).
+ */
+
+/* Small + large tablets */
+@media only screen and (min-width: 783px) {
+	.xprofile-wrapper { background-color: BurlyWood; }
+
+	#xprofile-groups-secondary {
+		display: block;
+	}
+	#group-picker-secondary {
+		display: inline-block;
+	}
+
+	.xprofile-groups {
+		/* TODO: why can't this be 50% when we set a right margin (in px or rem) on #xprofile-groups-primary? We're using border-box! */
+		float: left;
+		width: 49%;
+	}
+	#xprofile-groups-primary {
+		margin-right: 2%;
+	}
+
+	.xprofile-navigation .group-picker {
+		float: left;
+		width: 50%;
+	}
+}
+
+/* Large tablets */
+@media only screen and (min-width: 1200px) {
+	.xprofile-wrapper { background-color: Beige; }
+}

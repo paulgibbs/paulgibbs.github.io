@@ -1,0 +1,938 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+		<title>xProfile Admin</title>
+
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext" type="text/css" media="all" />
+		<link rel="stylesheet" href="//example.com/wp-includes/css/dashicons.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="//example.com/wp-admin/css/wp-admin.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="//example.com/wp-admin/css/forms.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="//example.com/wp-includes/css/buttons.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="style.css" type="text/css" media="all">
+
+		<script src="libs/jquery.js"></script>
+		<script src="libs/sortable.js"></script>
+		<script src="app.js" defer></script>
+	</head>
+
+	<body class="wp-admin wp-core-ui js admin-bar admin-color-fresh">
+		<div class="xprofile-wrapper">
+
+			<nav class="xprofile-navigation">
+				<label class="screen-reader-text" for="group-picker-primary">Switch between profile field groups.</label>
+				<select class="group-picker" id="group-picker-primary" data-groups-id="#xprofile-groups-primary">
+					<option value="1" selected>Field Group Alpha</option>
+					<option value="2">Field Group Beta</option>
+					<option value="3">Field Group Gamma</option>
+					<option value="4">Field Group Delta</option>
+				</select>
+
+				<label class="screen-reader-text" for="group-picker-secondary">Switch between profile field groups.</label>
+				<select class="group-picker" id="group-picker-secondary" data-groups-id="#xprofile-groups-secondary">
+					<option value="1">Field Group Alpha</option>
+					<option value="2">Field Group Beta</option>
+					<option value="3" selected>Field Group Gamma</option>
+					<option value="4">Field Group Delta</option>
+				</select>
+			</nav>
+
+			<p class="xprofile-hint">Touch a field name or description to change it.</p>
+
+			<div class="xprofile-groups-wrapper">
+				<div class="xprofile-groups" id="xprofile-groups-primary">
+					<div class="xprofile-group" data-group-id="1">
+						<div class="xprofile-field" data-field-id="1">
+							<form>
+								<header contenteditable="true" placeholder="Field name">About Me</header>
+								<p contenteditable="true" placeholder="Field description">Describe yourself in a few sentences.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-1-required" value="1" checked>Yes</label>
+									<label><input type="radio" name="field-1-required" value="0">No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-1-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox">Date Selector</option>
+											<option value="textarea">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox" selected="selected">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-1-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-1-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-1-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+
+						<div class="xprofile-field" data-field-id="2">
+							<form>
+								<header contenteditable="true" placeholder="Profile field name">WordPress Origin Story</header>
+								<p contenteditable="true" placeholder="Field description">How did you get involved with WordPress? We love a good origin story.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-2-required" value="1">Yes</label>
+									<label><input type="radio" name="field-2-required" value="0" checked>No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-2-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox">Date Selector</option>
+											<option value="textarea" selected="selected">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-2-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-2-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-2-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+					</div><!-- .xprofile-group -->
+
+					<div class="xprofile-group hide" data-group-id="2">
+						<div class="xprofile-field" data-field-id="3">
+							<form>
+								<header contenteditable="true" placeholder="Profile field name">My Third Profile Field</header>
+								<p contenteditable="true" placeholder="Field description">Field description goes here.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-3-required" value="1" checked>Yes</label>
+									<label><input type="radio" name="field-3-required" value="0">No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-3-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox" selected="selected">Date Selector</option>
+											<option value="textarea">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-3-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-3-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-3-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+
+						<div class="xprofile-field" data-field-id="4">
+							<form>
+								<header contenteditable="true" placeholder="Profile field name">My Fourth Profile Field</header>
+								<p contenteditable="true" placeholder="Field description">Another field description goes here.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-4-required" value="1" checked>Yes</label>
+									<label><input type="radio" name="field-4-required" value="0">No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-4-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox">Date Selector</option>
+											<option value="textarea">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox" selected="selected">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-4-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-4-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-4-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+					</div><!-- .xprofile-group -->
+
+					<div class="xprofile-group hide" data-group-id="3">
+						<div class="xprofile-field" data-field-id="5">
+							<form>
+								<header contenteditable="true" placeholder="Field name">About Your Cat</header>
+								<p contenteditable="true" placeholder="Field description">Describe your cat in a few sentences.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-5-required" value="1" checked>Yes</label>
+									<label><input type="radio" name="field-5-required" value="0">No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-5-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox">Date Selector</option>
+											<option value="textarea">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox" selected="selected">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-5-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-5-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-5-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+
+						<div class="xprofile-field" data-field-id="6">
+							<form>
+								<header contenteditable="true" placeholder="Profile field name">Cat Origin Story</header>
+								<p contenteditable="true" placeholder="Field description">Where did you cat come from? We love a good origin story.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-6-required" value="1">Yes</label>
+									<label><input type="radio" name="field-6-required" value="0" checked>No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-6-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox">Date Selector</option>
+											<option value="textarea" selected="selected">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-6-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-6-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-6-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+					</div><!-- .xprofile-group -->
+
+					<div class="xprofile-group hide" data-group-id="4">
+						<div class="xprofile-field" data-field-id="7">
+							<form>
+								<header contenteditable="true" placeholder="Profile field name">My Seventh Profile Field</header>
+								<p contenteditable="true" placeholder="Field description">Field description goes here.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-7-required" value="1" checked>Yes</label>
+									<label><input type="radio" name="field-7-required" value="0">No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-7-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox" selected="selected">Date Selector</option>
+											<option value="textarea">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-7-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-7-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-7-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+
+						<div class="xprofile-field" data-field-id="8">
+							<form>
+								<header contenteditable="true" placeholder="Profile field name">My Eighth Profile Field</header>
+								<p contenteditable="true" placeholder="Field description">Another field description goes here.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-8-required" value="1" checked>Yes</label>
+									<label><input type="radio" name="field-8-required" value="0">No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-8-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox">Date Selector</option>
+											<option value="textarea">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox" selected="selected">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-8-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-8-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-8-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+					</div><!-- .xprofile-group -->
+				</div>
+
+				<div class="xprofile-groups" id="xprofile-groups-secondary">
+					<div class="xprofile-group hide" data-group-id="1">
+						<div class="xprofile-field" data-field-id="1">
+							<form>
+								<header contenteditable="true" placeholder="Field name">About Me</header>
+								<p contenteditable="true" placeholder="Field description">Describe yourself in a few sentences.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-1-required" value="1" checked>Yes</label>
+									<label><input type="radio" name="field-1-required" value="0">No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-1-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox">Date Selector</option>
+											<option value="textarea">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox" selected="selected">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-1-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-1-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-1-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+
+						<div class="xprofile-field" data-field-id="2">
+							<form>
+								<header contenteditable="true" placeholder="Profile field name">WordPress Origin Story</header>
+								<p contenteditable="true" placeholder="Field description">How did you get involved with WordPress? We love a good origin story.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-2-required" value="1">Yes</label>
+									<label><input type="radio" name="field-2-required" value="0" checked>No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-2-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox">Date Selector</option>
+											<option value="textarea" selected="selected">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-2-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-2-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-2-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+					</div><!-- .xprofile-group -->
+
+					<div class="xprofile-group hide" data-group-id="2">
+						<div class="xprofile-field" data-field-id="3">
+							<form>
+								<header contenteditable="true" placeholder="Profile field name">My Third Profile Field</header>
+								<p contenteditable="true" placeholder="Field description">Field description goes here.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-3-required" value="1" checked>Yes</label>
+									<label><input type="radio" name="field-3-required" value="0">No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-3-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox" selected="selected">Date Selector</option>
+											<option value="textarea">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-3-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-3-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-3-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+
+						<div class="xprofile-field" data-field-id="4">
+							<form>
+								<header contenteditable="true" placeholder="Profile field name">My Fourth Profile Field</header>
+								<p contenteditable="true" placeholder="Field description">Another field description goes here.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-4-required" value="1" checked>Yes</label>
+									<label><input type="radio" name="field-4-required" value="0">No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-4-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox">Date Selector</option>
+											<option value="textarea">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox" selected="selected">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-4-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-4-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-4-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+					</div><!-- .xprofile-group -->
+
+					<div class="xprofile-group" data-group-id="3">
+						<div class="xprofile-field" data-field-id="5">
+							<form>
+								<header contenteditable="true" placeholder="Field name">About Your Cat</header>
+								<p contenteditable="true" placeholder="Field description">Describe your cat in a few sentences.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-5-required" value="1" checked>Yes</label>
+									<label><input type="radio" name="field-5-required" value="0">No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-5-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox">Date Selector</option>
+											<option value="textarea">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox" selected="selected">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-5-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-5-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-5-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+
+						<div class="xprofile-field" data-field-id="6">
+							<form>
+								<header contenteditable="true" placeholder="Profile field name">Cat Origin Story</header>
+								<p contenteditable="true" placeholder="Field description">Where did you cat come from? We love a good origin story.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-6-required" value="1">Yes</label>
+									<label><input type="radio" name="field-6-required" value="0" checked>No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-6-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox">Date Selector</option>
+											<option value="textarea" selected="selected">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-6-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-6-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-6-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+					</div><!-- .xprofile-group -->
+
+					<div class="xprofile-group hide" data-group-id="4">
+						<div class="xprofile-field" data-field-id="7">
+							<form>
+								<header contenteditable="true" placeholder="Profile field name">My Seventh Profile Field</header>
+								<p contenteditable="true" placeholder="Field description">Field description goes here.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-7-required" value="1" checked>Yes</label>
+									<label><input type="radio" name="field-7-required" value="0">No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-7-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox" selected="selected">Date Selector</option>
+											<option value="textarea">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-7-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-7-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-7-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+
+						<div class="xprofile-field" data-field-id="8">
+							<form>
+								<header contenteditable="true" placeholder="Profile field name">My Eighth Profile Field</header>
+								<p contenteditable="true" placeholder="Field description">Another field description goes here.</p>
+
+								<fieldset>
+									<legend>Is field required?</legend>
+									<label><input type="radio" name="field-8-required" value="1" checked>Yes</label>
+									<label><input type="radio" name="field-8-required" value="0">No</label>
+								</fieldset>
+
+								<fieldset>
+									<legend>Field type</legend>
+									<select name="field-8-type">
+										<optgroup label="Multi Fields">
+											<option value="checkbox">Checkboxes</option>
+											<option value="selectbox">Drop Down Select Box</option>
+											<option value="multiselectbox">Multi Select Box</option>
+											<option value="radio">Radio Buttons</option>
+										</optgroup>
+
+										<optgroup label="Single Fields">
+											<option value="datebox">Date Selector</option>
+											<option value="textarea">Multi-line Text Area</option>
+											<option value="number">Number</option>
+											<option value="textbox" selected="selected">Text Box</option>
+											<option value="url">URL</option>
+										</optgroup>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Default visibility</legend>
+									<select name="field-8-visibility">
+										<option value="public">Everyone</option>
+										<option value="adminsonly">Only Me</option>
+										<option value="loggedin">All Members</option>
+										<option value="friends">My Friends</option>
+									</select>
+								</fieldset>
+
+								<fieldset>
+									<legend>Per-user visibility</legend>
+									<label><input type="radio" name="field-8-custom-visibility" value="1" checked>Let members change this field&rsquo;s visibility</label>
+									<label><input type="radio" name="field-8-custom-visibility" value="0">Enforce the default visibility for all members</label>
+								</fieldset>
+
+								<div class="field-controls">
+									<button class="dashicons dashicons-trash button trash-button"><span class="screen-reader-text">Trash profile field</span></button>
+									<button class="dashicons dashicons-sort button change-button"><span class="screen-reader-text">Move profile field</span></button>
+								</div>
+							</form>
+						</div><!-- .xprofile-field -->
+					</div><!-- .xprofile-group -->
+				</div>
+			</div>
+
+			<div class="xprofile-controls">
+				<button class="dashicons dashicons-plus button add-button"><span class="screen-reader-text">Add new profile field</span></button>
+				<button class="dashicons dashicons-cloud button save-button"><span class="screen-reader-text">Save all profile fields</span></button>
+			</div>
+
+		</div>
+	</body>
+
+</html>
